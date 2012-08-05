@@ -91,6 +91,13 @@ enum chg_type {
 };
 #endif
 
+struct msm_hsusb_platform_data {
+	/* hard reset the ULPI PHY */
+	void (*phy_reset)(void);
+
+	/* (de)assert the reset to the usb core */
+	void (*hw_reset)(bool enable);
+
 enum pre_emphasis_level {
 	PRE_EMPHASIS_DEFAULT,
 	PRE_EMPHASIS_DISABLE,
@@ -108,6 +115,11 @@ enum se1_gate_state {
 	SE1_GATING_ENABLE,
 	SE1_GATING_DISABLE,
 };
+
+	/* for notification when USB is connected or disconnected */
+	void (*usb_connected)(int);
+
+	/* val, reg pairs terminated by -1 */
 
 enum hs_drv_amplitude {
 	HS_DRV_AMPLITUDE_DEFAULT,
@@ -204,5 +216,10 @@ struct msm_usb_host_platform_data {
 	void (*vbus_power) (unsigned phy_info, int on);
 	int  (*vbus_init)(int init);
 };
+
+//#if defined(CONFIG_USB_GADGET_MSM_72K) && defined(CONFIG_CONSOLE_POLL)
+struct usb_ep;
+int usb_loop_poll_hw(struct usb_ep *_ept, int is_rx);
+//#endif /* CONFIG_USB_GADGET_MSM_72K && CONFIG_CONSOLE_POLL */
 
 #endif

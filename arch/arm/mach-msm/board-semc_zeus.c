@@ -147,6 +147,14 @@
 #define MSM_RAM_CONSOLE_SIZE    (128 * SZ_1K)
 #endif
 
+/*Added by pax trying to get kgdb working */
+#ifdef CONFIG_USB_ANDROID_ACM
+static char *usb_functions_adb_acm[] = {
+    "adb",
+    "acm",
+};
+#endif
+
 #define USB_VREG_MV		3500	/* usb voltage regulator mV */
 
 /* GPIO hardware device identification */
@@ -1167,6 +1175,10 @@ static struct android_usb_platform_data android_usb_pdata = {
 	.version		= 0x0100,
 	.product_name		= "SEMC HSUSB Device",
 	.manufacturer_name	= "SEMC",
+	.num_products = ARRAY_SIZE(usb_products),
+	.products = usb_products,
+	.num_functions = ARRAY_SIZE(usb_functions_adb_acm),  /* adb+ acm */
+	.functions = usb_functions_adb_acm,
 	.usb_mass_storage_device = &mass_storage_device,
 	/* .serial_number filled_in by board_serialno_setup */
 };
