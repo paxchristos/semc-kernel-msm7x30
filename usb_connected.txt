@@ -1,0 +1,38 @@
+./drivers/usb/gadget/lh7a40x_udc.c:#define is_usb_connected() 		get_portc_pdr(2)
+./drivers/usb/gadget/lh7a40x_udc.c:		      is_usb_connected()? "full speed" : "disconnected");
+./drivers/usb/gadget/lh7a40x_udc.c:				    && is_usb_connected()) {
+./drivers/usb/gadget/lh7a40x_udc.c:				      is_usb_connected()? "" : "+disconnect");
+./drivers/usb/gadget/lh7a40x_udc.c:				if (!is_usb_connected()) {
+./drivers/usb/gadget/goku_udc.c:	int				i, t, is_usb_connected;
+./drivers/usb/gadget/goku_udc.c:	is_usb_connected = tmp & PW_DETECT;
+./drivers/usb/gadget/goku_udc.c:		is_usb_connected
+./drivers/usb/gadget/goku_udc.c:	if (!is_usb_connected || !dev->driver || (tmp & PW_PULLUP) == 0)
+./drivers/usb/gadget/msm72k_udc.c:	void (*usb_connected)(int);
+./drivers/usb/gadget/msm72k_udc.c:				if (ui->usb_connected)
+./drivers/usb/gadget/msm72k_udc.c:					ui->usb_connected(0);
+./drivers/usb/gadget/msm72k_udc.c:					if (ui->usb_connected)
+./drivers/usb/gadget/msm72k_udc.c:						ui->usb_connected(2);
+./drivers/usb/gadget/msm72k_udc.c:		ui->usb_connected = pdata->usb_connected;
+./drivers/char/diag/diagchar_core.c:	if (((driver->logging_mode == USB_MODE) && (!driver->usb_connected)) ||
+./drivers/char/diag/diagchar.h:	int usb_connected;
+./drivers/char/diag/diagfwd.c:	driver->usb_connected = 1;
+./drivers/char/diag/diagfwd.c:	driver->usb_connected = 0;
+./drivers/char/diag/diagfwd.c:	if (driver->usb_connected)
+./arch/arm/mach-pxa/mioa701.c:static int is_usb_connected(void)
+./arch/arm/mach-pxa/mioa701.c:	.udc_is_connected = is_usb_connected,
+./arch/arm/mach-pxa/mioa701.c:	.is_usb_online	= is_usb_connected,
+./arch/arm/mach-fsm/htc_power_supply.c:extern void notify_usb_connected(int);
+./arch/arm/mach-fsm/htc_power_supply.c:void notify_usb_connected(int status)
+./arch/arm/mach-fsm/htc_power_supply.c:	printk("### notify_usb_connected(%d) ###\n", status);
+./arch/arm/mach-fsm/board-mahimahi.c:extern void notify_usb_connected(int);
+./arch/arm/mach-fsm/board-mahimahi.c:	.usb_connected		= notify_usb_connected,
+./arch/arm/mach-msm/include/mach/msm_hsusb.h:	void (*usb_connected)(int);
+./arch/arm/mach-msm/htc_power_supply.c:extern void notify_usb_connected(int);
+./arch/arm/mach-msm/htc_power_supply.c:void notify_usb_connected(int status)
+./arch/arm/mach-msm/htc_power_supply.c:	printk("### notify_usb_connected(%d) ###\n", status);
+./arch/arm/mach-msm/board-mahimahi.c:extern void notify_usb_connected(int);
+./arch/arm/mach-msm/board-mahimahi.c:	.usb_connected		= notify_usb_connected,
+Binary file ./arch/arm/mach-msm/board-semc_zeus.o matches
+Binary file ./arch/arm/mach-msm/rpc_fsusb.o matches
+Binary file ./arch/arm/mach-msm/devices-msm7x30.o matches
+Binary file ./arch/arm/mach-msm/rpc_hsusb.o matches

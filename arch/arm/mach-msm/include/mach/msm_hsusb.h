@@ -91,13 +91,6 @@ enum chg_type {
 };
 #endif
 
-struct msm_hsusb_platform_data {
-	/* hard reset the ULPI PHY */
-	void (*phy_reset)(void);
-
-	/* (de)assert the reset to the usb core */
-	void (*hw_reset)(bool enable);
-
 enum pre_emphasis_level {
 	PRE_EMPHASIS_DEFAULT,
 	PRE_EMPHASIS_DISABLE,
@@ -167,6 +160,9 @@ struct msm_hsusb_platform_data {
 	int vreg5v_required;
 
 	u32 swfi_latency;
+
+	/* (de)assert the reset to the usb core */
+	void (*hw_reset)(bool enable);
 };
 
 struct msm_otg_platform_data {
